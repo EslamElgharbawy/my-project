@@ -9,10 +9,11 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        Primary: "#fe4407",
-        Secondary: "#272B37",
-        Accent: "#8CD42F",
-        TextMain: "#666666",
+        primary: "#fe4407",
+        secondary: "#272B37",
+        background:"#F4F4F4",
+        accent: "#8CD42F",
+        textMain: "#666666",
         border: "#cccccc",
         white: "#ffffff",
       },
