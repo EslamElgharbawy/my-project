@@ -14,17 +14,28 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { ChevronDown, CircleAlert, Heart, Scale, User } from "lucide-react";
+import {
+  ChevronDown,
+  CircleAlert,
+  Heart,
+  Scale,
+  Search,
+  User,
+} from "lucide-react";
 import Image from "next/image";
 import logo from "../../assets/images/ChatGPTImageApr18202602_35_14AM 2.svg";
 import ReactCountryFlag from "react-country-flag";
+import { useRef, useState } from "react";
 
 export default function Navbar() {
+  const inputRef = useRef<HTMLInputElement | null>(null);
+  const [selectedCategory, setSelectedCategory] = useState("All Categories");
   return (
     <>
       <header>
         <div className="bg-background">
           <div className="mx-6">
+            {/* // ? top_bar */}
             <div className="top_bar flex justify-between items-center py-3">
               <div className="top_bar_left flex justify-center items-center gap-6">
                 <a
@@ -83,7 +94,7 @@ export default function Navbar() {
                         </svg>
                       </HoverCardTrigger>
 
-                      <HoverCardContent className="w-11 p-2 border-none outline-none ring-0 focus:outline-none focus:ring-0 flex justify-center">
+                      <HoverCardContent className="w-11 p-2 border-none outline-none ring-0 focus:outline-none focus:ring-0 flex justify-center bg-white">
                         <ul className="space-y-2">
                           <li className="rounded text-[11px] text-[#666666] hover:text-[#fe4407] transition-all duration-300 cursor-pointer">
                             EUR
@@ -125,7 +136,7 @@ export default function Navbar() {
                         </svg>
                       </HoverCardTrigger>
 
-                      <HoverCardContent className="w-16 p-2 border-none outline-none ring-0 focus:outline-none focus:ring-0 flex justify-center">
+                      <HoverCardContent className="w-16 p-2 border-none outline-none ring-0 focus:outline-none focus:ring-0 flex justify-center bg-white">
                         <ul className="space-y-2">
                           <li className="flex justify-center items-center gap-2 rounded text-[11px] text-[#666666] hover:text-[#fe4407] transition-all duration-300 cursor-pointer">
                             <span>
@@ -177,9 +188,10 @@ export default function Navbar() {
               </div>
             </div>
 
+            {/* // ^ logo&taps */}
             <div className="logo&taps">
               <div className="flex justify-center items-center">
-                <div className="logo w-[20%] p-4 bg-primary flex justify-center items-center">
+                <div className="logo w-[20%] p-5 bg-primary flex justify-center items-center">
                   <a href="#">
                     <Image
                       src={logo}
@@ -258,38 +270,120 @@ export default function Navbar() {
                       </a>
                     </div>
                   </div>
-                  <div className="search&offers flex items-center">
-                    <div className="flex items-center px-10 text-[#AAAAAA] w-fit h-[46.2px]">
-                      <DropdownMenu>
-                        <DropdownMenuTrigger asChild>
-                          <Button
-                            variant="outline"
-                            className="border-0 bg-transparent text-xs font-normal gap-12 p-0"
+                  <div className="search&offers flex items-center h-[54.2px]">
+                    <div className="flex items-center w-[70%] h-full">
+                      <div className="flex items-center">
+                        <DropdownMenu>
+                          <DropdownMenuTrigger asChild>
+                            <Button
+                              variant="outline"
+                              className="border-0 bg-transparent text-xs font-normal gap-12 px-10 text-[#AAAAAA]"
+                            >
+                              <p>{selectedCategory}</p>
+                              <ChevronDown />
+                            </Button>
+                          </DropdownMenuTrigger>
+                          <DropdownMenuContent
+                            align="start"
+                            className="text-[#AAAAAA] bg-[#F8F8F8] ring-0 rounded-none relative -bottom-2 w-[227px] "
                           >
-                            <p>All Categories</p>
-                            <ChevronDown />
-                          </Button>
-                        </DropdownMenuTrigger>
-                        <DropdownMenuContent>
-                          <DropdownMenuGroup>
-                            <DropdownMenuLabel>My Account</DropdownMenuLabel>
-                            <DropdownMenuItem>Profile</DropdownMenuItem>
-                            <DropdownMenuItem>Billing</DropdownMenuItem>
-                            <DropdownMenuItem>Settings</DropdownMenuItem>
-                          </DropdownMenuGroup>
-                          <DropdownMenuSeparator />
-                          <DropdownMenuItem>GitHub</DropdownMenuItem>
-                          <DropdownMenuItem>Support</DropdownMenuItem>
-                          <DropdownMenuItem disabled>API</DropdownMenuItem>
-                        </DropdownMenuContent>
-                      </DropdownMenu>
-                    </div>
-                      <div className="w-[1px] h-5 bg-[#EEEEEE1A]"></div>
-                      <div>
-                        <input type="text" placeholder="Search in..." className="bg-transparent text-[#AAAAAA] placeholder:text-[#AAAAAA] text-xs font-normal ps-10 focus-visible:ring-0
-focus-visible:outline-none
-focus-visible:border-0"/>
+                            <DropdownMenuGroup>
+                              {[
+                                "All Categories",
+                                "Fashion",
+                                "Bags",
+                                "Shoes",
+                                "Sports",
+                                "Games",
+                                "Headphones",
+                                "Clothing & Apparel",
+                                "Camera",
+                                "Electronics",
+                                "Watches",
+                              ].map((item) => (
+                                <DropdownMenuItem
+                                  key={item}
+                                  onClick={() => setSelectedCategory(item)}
+                                  className="text-xs focus:bg-transparent hover:!bg-textMain outline-none  hover:!text-white px-0 w-full ps-10"
+                                >
+                                  {item}
+                                </DropdownMenuItem>
+                              ))}
+                            </DropdownMenuGroup>
+                          </DropdownMenuContent>
+                        </DropdownMenu>
                       </div>
+                      <div className="w-[1px] h-5 bg-[#EEEEEE1A]"></div>
+                      <div className="search-input flex-grow">
+                        <input
+                          ref={inputRef}
+                          type="text"
+                          placeholder="Search in..."
+                          className="bg-transparent 
+                        text-[#AAAAAA] 
+                        placeholder:text-[#AAAAAA] 
+                        text-xs font-normal 
+                        ps-10 
+                        focus-visible:ring-0
+                        focus-visible:outline-none
+                        focus-visible:border-0"
+                        />
+                      </div>
+                      <button
+                        onClick={() => {
+                          inputRef.current?.focus();
+                        }}
+                        className="text-[#AAAAAA] hover:text-primary transition-all duration-300 pe-10"
+                      >
+                        <Search strokeWidth={1.5} />
+                      </button>
+                      <div className="w-[1px] h-5 bg-[#EEEEEE1A]"></div>
+                    </div>
+                    <div className="w-[30%] flex justify-center items-center gap-10 text-white text-[14px] font-semibold">
+                      <a
+                        href="#"
+                        className="flex justify-center items-center gap-2 hover:text-primary transition-all duration-300"
+                      >
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          strokeWidth="2"
+                          stroke="currentColor"
+                          className="size-6"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            d="m3.75 13.5 10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75Z"
+                          />
+                        </svg>
+                        Flash Sale
+                      </a>
+                      <a
+                        href="#"
+                        className="flex justify-center items-center gap-2 hover:text-primary transition-all duration-300"
+                      >
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="24"
+                          height="24"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="2"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          className="lucide lucide-badge-percent-icon lucide-badge-percent"
+                        >
+                          <path d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z" />
+                          <path d="m15 9-6 6" />
+                          <path d="M9 9h.01" />
+                          <path d="M15 15h.01" />
+                        </svg>
+                        Special Offers
+                      </a>
+                    </div>
                   </div>
                 </div>
               </div>
