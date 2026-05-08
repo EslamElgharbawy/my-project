@@ -18,7 +18,7 @@ const resources = {
         signup: "Register",
       },
       topbar: {
-        findStore: "Find Walmart Store",
+        findStore: "Find FreshCart Store",
         freeShipping: "Free Standard Shipping",
       },
       categories: {
@@ -52,7 +52,7 @@ const resources = {
         signup: "إنشاء حساب",
       },
       topbar: {
-        findStore: "اعثر على متجر وول مارت",
+        findStore: "اعثر على متجر فريش كارت",
         freeShipping: "شحن قياسي مجاني",
       },
       categories: {

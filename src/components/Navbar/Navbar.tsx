@@ -10,8 +10,6 @@ import {
   DropdownMenuContent,
   DropdownMenuGroup,
   DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import {
@@ -94,7 +92,10 @@ export default function Navbar() {
                   className="flex justify-center items-center gap-1 text-[#666666] hover:text-[#fe4407] transition-all duration-300"
                 >
                   <CircleAlert width={16} height={16} />
-                  <p className="mt-1 text-[11px]"> {t("topbar.freeShipping")}</p>
+                  <p className="mt-1 text-[11px]">
+                    {" "}
+                    {t("topbar.freeShipping")}
+                  </p>
                 </a>
               </div>
               <div className="top_bar_right flex justify-center items-center gap-5">
@@ -274,7 +275,7 @@ export default function Navbar() {
                           </a>
                         </span>
                         <span className="relative hover:text-primary transition-all duration-300">
-                          <span className="absolute -top-1 -right-2 w-[18px] h-[18px] bg-accent text-[#272b37] text-[11px] rounded-full flex justify-center items-center">
+                          <span className={`absolute -top-1  ${language === "EGY" ? "-left-2" : "-right-2"} w-[18px] h-[18px] bg-accent text-[#272b37] text-[11px] rounded-full flex justify-center items-center`}>
                             0
                           </span>
                           <a href="">
@@ -299,7 +300,7 @@ export default function Navbar() {
                           </span>
                         </span>
                         <span className="relative mb-1 group-hover:text-primary transition-all">
-                          <span className="absolute -top-1 -right-1 w-[18px] h-[18px] bg-accent text-[#272b37] text-[11px] rounded-full flex justify-center items-center">
+                          <span className={`absolute -top-1  ${language === "EGY" ? "-left-2" : "-right-2"} w-[18px] h-[18px] bg-accent text-[#272b37] text-[11px] rounded-full flex justify-center items-center`}>
                             0
                           </span>
                           <svg
@@ -327,22 +328,25 @@ export default function Navbar() {
                           <DropdownMenuTrigger asChild>
                             <Button
                               variant="outline"
-                              className="border-0 bg-transparent text-xs font-normal gap-12 px-10 text-[#AAAAAA]"
+                              className="border-0 bg-transparent text-xs font-normal px-10 text-[#AAAAAA] w-[240px] flex justify-between"
                             >
-                              <p>{t(`categories.${selectedCategory}`)}</p>
-                              <ChevronDown />
+                              <p className={`flex-1 ${language === "EGY" ? "text-right" : "text-left"}`}>
+                                {t(`categories.${selectedCategory}`)}
+                              </p>
+                              <ChevronDown  className="shrink-0"/>
                             </Button>
                           </DropdownMenuTrigger>
                           <DropdownMenuContent
                             align="start"
-                            className="text-[#AAAAAA] bg-[#F8F8F8] ring-0 rounded-none relative -bottom-2 w-[227px]"
+                            className="text-[#AAAAAA] bg-[#F8F8F8] ring-0 rounded-none relative -bottom-2 w-[240px] py-1 px-0"
                           >
                             <DropdownMenuGroup>
                               {categories.map((item) => (
                                 <DropdownMenuItem
                                   key={item}
                                   onClick={() => setSelectedCategory(item)}
-                                  className="text-xs focus:bg-transparent hover:!bg-textMain outline-none  hover:!text-white px-0 w-full ps-10"
+                                  className={`text-xs focus:bg-transparent hover:!bg-textMain outline-none  hover:!text-white px-0 w-full ps-10 rounded-none
+                                   ${language === "EGY" ? "justify-end pe-10" : "justify-start"}`}
                                 >
                                   {t(`categories.${item}`)}
                                 </DropdownMenuItem>
