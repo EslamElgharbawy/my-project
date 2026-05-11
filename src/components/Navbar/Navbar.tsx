@@ -23,7 +23,7 @@ import {
 import Image from "next/image";
 import logo from "../../assets/images/ChatGPTImageApr18202602_35_14AM 2.svg";
 import ReactCountryFlag from "react-country-flag";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Currency, lang } from "@/Types/currency";
 import { useTranslation } from "react-i18next";
 import { changeLanguage } from "i18next";
@@ -33,6 +33,7 @@ export default function Navbar() {
   const [selectedCategory, setSelectedCategory] = useState("all");
   const [currency, setCurrency] = useState<Currency>("USD");
   const [language, setLanguage] = useState<lang>("ENG");
+  const [active, setactive] = useState("Home");
   const { t } = useTranslation();
 
   const currencySymbol = {
@@ -53,6 +54,8 @@ export default function Navbar() {
     "electronics",
     "watches",
   ];
+
+  const sections = ["home", "shop", "vendors", "deals"];
   return (
     <>
       <header>
@@ -250,21 +253,17 @@ export default function Navbar() {
                 </div>
                 <div className="nav-taps w-[80%] bg-secondary">
                   <div className="taps&cart text-white flex justify-between items-center px-10 py-2 border-b-[1px] border-[#EEEEEE12]">
-                    <div className="left-side ">
+                    <div className="left-side">
                       <ul className="flex items-center gap-12 text-[14px] font-semibold">
-                        <li className="tap-item py-6">
-                          <a href="#">{t("navbar.home")}</a>
-                        </li>
-                        <li className="tap-item py-6">
-                          <a href="#">{t("navbar.shop")}</a>
-                        </li>
-                        <li className="tap-item py-6">
-                          <a href="#">{t("navbar.vendors")}</a>
-                        </li>
-                        <li className="tap-item py-6">
-                          <a href="#">{t("navbar.deals")}</a>
-                        </li>
-                        <li className="tap-item py-6"></li>
+                        {sections.map((item) => (
+                          <li
+                            key={item}
+                            onClick={() => setactive(item)}
+                            className={`tap-item py-6 transition-all duration-300 ${active === item ? "text-primary" : "hover:text-primary"}`}
+                          >
+                            <a href={`#${item}`}>{t(`navbar.${item}`)}</a>
+                          </li>
+                        ))}
                       </ul>
                     </div>
                     <div className="right-side flex justify-center items-center">
@@ -275,7 +274,9 @@ export default function Navbar() {
                           </a>
                         </span>
                         <span className="relative hover:text-primary transition-all duration-300">
-                          <span className={`absolute -top-1  ${language === "EGY" ? "-left-2" : "-right-2"} w-[18px] h-[18px] bg-accent text-[#272b37] text-[11px] rounded-full flex justify-center items-center`}>
+                          <span
+                            className={`absolute -top-1  ${language === "EGY" ? "-left-2" : "-right-2"} w-[18px] h-[18px] bg-accent text-[#272b37] text-[11px] rounded-full flex justify-center items-center`}
+                          >
                             0
                           </span>
                           <a href="">
@@ -300,7 +301,9 @@ export default function Navbar() {
                           </span>
                         </span>
                         <span className="relative mb-1 group-hover:text-primary transition-all">
-                          <span className={`absolute -top-1  ${language === "EGY" ? "-left-2" : "-right-2"} w-[18px] h-[18px] bg-accent text-[#272b37] text-[11px] rounded-full flex justify-center items-center`}>
+                          <span
+                            className={`absolute -top-1  ${language === "EGY" ? "-left-2" : "-right-2"} w-[18px] h-[18px] bg-accent text-[#272b37] text-[11px] rounded-full flex justify-center items-center`}
+                          >
                             0
                           </span>
                           <svg
@@ -330,10 +333,12 @@ export default function Navbar() {
                               variant="outline"
                               className="border-0 bg-transparent text-xs font-normal px-10 text-[#AAAAAA] w-[240px] flex justify-between"
                             >
-                              <p className={`flex-1 ${language === "EGY" ? "text-right" : "text-left"}`}>
+                              <p
+                                className={`flex-1 ${language === "EGY" ? "text-right" : "text-left"}`}
+                              >
                                 {t(`categories.${selectedCategory}`)}
                               </p>
-                              <ChevronDown  className="shrink-0"/>
+                              <ChevronDown className="shrink-0" />
                             </Button>
                           </DropdownMenuTrigger>
                           <DropdownMenuContent
