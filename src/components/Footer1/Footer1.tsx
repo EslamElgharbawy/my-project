@@ -10,42 +10,44 @@ import {
   faPinterestP,
 } from "@fortawesome/free-brands-svg-icons";
 import { Mail } from "lucide-react";
+import { useTranslation } from "react-i18next";
 const footerSections = [
   {
-    title: "Company",
+    title: "company",
     links: [
-      "About Us",
-      "Team Member",
-      "Career",
-      "Contact Us",
-      "Affilate",
-      "Order History",
+      "aboutUs",
+      "teamMember",
+      "career",
+      "contactUs",
+      "affilate",
+      "orderHistory",
     ],
   },
   {
-    title: "My Account",
+    title: "myAccount",
     links: [
-      "Track Order",
-      "View Cart",
-      "Sign In",
-      "Help",
-      "My Wishlist",
-      "Privacy Policy",
+      "trackOrder",
+      "viewCart",
+      "signIn",
+      "help",
+      "myWishlist",
+      "privacyPolicy",
     ],
   },
   {
-    title: "Customer Service",
+    title: "customerService",
     links: [
-      "Payment Methods",
-      "Money-back Guarantee",
-      "Product Returns",
-      "Support Center",
-      "Shipping",
-      "Terms of Service",
+      "paymentMethods",
+      "moneyBackGuarantee",
+      "returns",
+      "supportCenter",
+      "shipping",
+      "termsOfService",
     ],
   },
 ];
 export default function Footer1() {
+  const { t } = useTranslation();
   return (
     <>
       <footer>
@@ -72,7 +74,7 @@ export default function Footer1() {
                       </a>
                     </div>
                     <div className="w-full">
-                      <p>Got Question? Call us 24/7</p>
+                      <p>{t("footer.supportText")}</p>
                     </div>
                     <div className="w-full">
                       <a
@@ -84,8 +86,7 @@ export default function Footer1() {
                     </div>
                     <div className="w-full leading-7 mb-3">
                       <p>
-                        Register now to get updates on pronot get up ions &
-                        coupons ster now toon.
+                        {t("footer.description")}
                       </p>
                     </div>
                     <div className="w-full flex items-center gap-3 ">
@@ -144,7 +145,7 @@ export default function Footer1() {
                 {footerSections.map((section) => (
                   <div key={section.title} className="flex flex-col p-3">
                     <div className="mb-5 uppercase font-bold text-[14px] text-secondary">
-                      {section.title}
+                      {t(`footer.${section.title}`)}
                     </div>
 
                     <ul className="flex flex-col gap-3 text-textMain">
@@ -153,7 +154,7 @@ export default function Footer1() {
                           key={link}
                           className="hover:text-primary transition-colors duration-300 cursor-pointer"
                         >
-                          {link}
+                          {t(`footer.${link}`)}
                         </li>
                       ))}
                     </ul>
@@ -171,18 +172,17 @@ export default function Footer1() {
 
                         <div>
                           <h2 className="text-base font-semibold transform uppercase text-secondary">
-                            Subscribe To Our Newsletter
+                            {t("footer.subscribe")}
                           </h2>
                           <p className="text-[#999999]">
-                            Get all the latest information on Events, Sales and
-                            Offers.
+                            {t("footer.subscribeDescription")}
                           </p>
                         </div>
                       </div>
                       <div className="flex gap-4">
                         <input
                           type="email"
-                          placeholder="Your E-mail Address"
+                          placeholder={t("footer.emailPlaceholder")}
                           className="bg-[#f0f0f0] placeholder:text-textMain
                            placeholder:focus:text-opacity-0
                             placeholder:focus:transition-all
@@ -195,7 +195,7 @@ export default function Footer1() {
                                 focus:ring-0 flex-1"
                         />
                         <button className="bg-primary text-white py-3 px-5 rounded hover:bg-opacity-85 transition-colors duration-300 text-sm font-semibold">
-                          SIGN UP
+                          {t("footer.signUp")}
                         </button>
                       </div>
                     </div>

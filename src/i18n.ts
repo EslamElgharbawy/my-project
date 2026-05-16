@@ -34,6 +34,44 @@ const resources = {
         electronics: "Electronics",
         watches: "Watches",
       },
+      footer: {
+        supportText: "Got Question? Call us 24/7",
+        description: "Register now to get updates on promotions & coupons.",
+
+        company: "Company",
+        myAccount: "My Account",
+        customerService: "Customer Service",
+
+        aboutUs: "About Us",
+        teamMember: "Team Member",
+        career: "Career",
+        contactUs: "Contact Us",
+        affilate: "Affilate",
+        orderHistory: "Order History",
+
+        trackOrder: "Track My Order",
+        viewCart: "View Cart",
+        signIn: "Sign In",
+        help: "Help",
+        myWishlist: "My Wishlist",
+        privacyPolicy: "Privacy Policy",
+
+        paymentMethods: "Payment Methods",
+        moneyBackGuarantee: "Money-back Guarantee",
+        returns: "Product Returns",
+        supportCenter: "Support Center",
+        shipping: "Shipping",
+        termsOfService: "Terms of Service",
+
+        subscribe: "Subscribe To Our Newsletter",
+        subscribeDescription:
+          "Get all the latest information on Events, Sales and Offers.",
+        emailPlaceholder: "Your E-mail Address",
+        signUp: "SIGN UP",
+
+        copyright: "Copyright © 2026 FreshCart Store. All Rights Reserved.",
+        safePayment: "We're using safe payment for",
+      },
     },
   },
   ar: {
@@ -67,6 +105,44 @@ const resources = {
         camera: "كاميرات",
         electronics: "إلكترونيات",
         watches: "ساعات",
+      },
+      footer: {
+        supportText: "هل لديك سؤال؟ اتصل بنا 24/7",
+        description: "سجل الآن للحصول على تحديثات حول العروض والقسائم.",
+
+        company: "الشركة",
+        myAccount: "حسابي",
+        customerService: "خدمة العملاء",
+
+        aboutUs: "من نحن",
+        teamMember: "فريق العمل",
+        career: "الوظائف",
+        contactUs: "تواصل معنا",
+        affilate: "التسويق بالعمولة",
+        orderHistory: "تاريخ الطلبات",
+
+        trackOrder: "تتبع الطلب",
+        viewCart: "عرض السلة",
+        signIn: "تسجيل الدخول",
+        help: "المساعدة",
+        myWishlist: "قائمة الأمنيات",
+        privacyPolicy: "سياسة الخصوصية",
+
+        paymentMethods: "طرق الدفع",
+        moneyBackGuarantee: "ضمان إرجاع المال",
+        returns: "إرجاع المنتجات",
+        supportCenter: "مركز الدعم",
+        shipping: "الشحن",
+        termsOfService: "شروط الخدمة",
+
+        subscribe: "اشترك في النشرة البريدية",
+        subscribeDescription:
+          "احصل على أحدث المعلومات حول الأحداث والمبيعات والعروض.",
+        emailPlaceholder: "البريد الإلكتروني",
+        signUp: "اشترك",
+
+        copyright: "حقوق النشر © 2026 FreshCart Store. جميع الحقوق محفوظة.",
+        safePayment: "نحن نستخدم الدفع الآمن ل",
       },
     },
   },
