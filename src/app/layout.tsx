@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
+import  Layout  from "../components/Layout/Layout";
 
 import "./globals.css";
 import DirectionProvider from "@/direction-provider";
+import ReduxProvider from "@/components/ReduxProvider/ReduxProvider";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -20,7 +22,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en"  className={`${poppins.className} h-full antialiased`}>
-      <body className="min-h-full flex flex-col"><DirectionProvider>{children}</DirectionProvider></body>
+      <body className="min-h-full flex flex-col">
+        <DirectionProvider>
+          <ReduxProvider>
+            <Layout>{children}</Layout>
+          </ReduxProvider>
+        </DirectionProvider>
+      </body>
     </html>
   );
 }

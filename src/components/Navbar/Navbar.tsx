@@ -338,7 +338,7 @@ export default function Navbar() {
                               >
                                 {t(`categories.${selectedCategory}`)}
                               </p>
-                              <ChevronDown className="shrink-0" />
+                              <ChevronDown />
                             </Button>
                           </DropdownMenuTrigger>
                           <DropdownMenuContent

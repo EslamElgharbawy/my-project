@@ -10,7 +10,7 @@ export default function DirectionProvider({
 }) {
   useEffect(() => {
     const setDirection = (lng: string) => {
-      const lang = lng.split("-")[0];
+      const lang = lng?.split("-")[0];
       document.documentElement.dir = lang === "ar" ? "rtl" : "ltr";
       document.documentElement.lang = lang;
     };
