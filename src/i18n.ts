@@ -45,6 +45,24 @@ const resources = {
         sportswear: "Sportswear",
         from: "From",
       },
+      features: {
+        freeShipping: {
+          title: "Free Shipping & Returns",
+          desc: "For all orders over $99",
+        },
+        securePayment: {
+          title: "Secure Payment",
+          desc: "We ensure secure payment",
+        },
+        moneyBack: {
+          title: "Money Back Guarantee",
+          desc: "Any back within 30 days",
+        },
+        customerSupport: {
+          title: "Customer Support",
+          desc: "Call or email us 24/7",
+        },
+      },
       footer: {
         supportText: "Got Question? Call us 24/7",
         description: "Register now to get updates on promotions & coupons.",
@@ -126,6 +144,24 @@ const resources = {
         fashion: "الأزياء",
         sportswear: "الملابس الرياضية",
         from: "من",
+      },
+      features: {
+        freeShipping: {
+          title: "شحن وإرجاع مجاني",
+          desc: "لجميع الطلبات فوق 99$",
+        },
+        securePayment: {
+          title: "دفع آمن",
+          desc: "نضمن لك عملية دفع آمنة",
+        },
+        moneyBack: {
+          title: "ضمان استرداد الأموال",
+          desc: "استرجاع خلال 30 يوم",
+        },
+        customerSupport: {
+          title: "دعم العملاء",
+          desc: "اتصل أو راسلنا 24/7",
+        },
       },
       footer: {
         supportText: "هل لديك سؤال؟ اتصل بنا 24/7",
