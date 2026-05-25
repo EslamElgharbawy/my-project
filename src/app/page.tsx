@@ -11,6 +11,11 @@ import { motion } from "framer-motion";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import i18n from "@/i18n";
+import PromoBanner from "@/components/PromoBanner/PromoBanner";
+import HeadphonesCard from "@/components/HeadphonesCard/HeadphonesCard";
+import FashionPromoCard from "@/components/FashionPromoCard/FashionPromoCard";
+import ElectronicPromoCard from "@/components/ElectronicPromoCard/ElectronicPromoCard";
+import ShoesPromoCard from "@/components/ShoesPromoCard/ShoesPromoCard";
 
 export default function Home() {
   const [activeSlide, setActiveSlide] = useState(0);
@@ -359,8 +364,8 @@ export default function Home() {
             {features_data.map((feature) => (
               <div
                 key={feature.id}
-                className="flex justify-center items-center gap-5 p-[10px] w-[368.25px] 
-                relative after:absolute after:right-0  after:h-14 after:w-[0.5px] after:bg-border last:after:hidden"
+                className={`flex justify-center items-center gap-5 p-[10px] w-[368.25px] 
+                relative after:absolute ${i18n.language === "ar" ? "after:left-0" : "after:right-0"}  after:h-14 after:w-[0.5px] after:bg-border last:after:hidden`}
               >
                 <div className="flex justify-center items-center p-4 rounded-full bg-[#8CD42F1A] text-secondary">
                   {feature.icon}
@@ -373,6 +378,25 @@ export default function Home() {
                 </div>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="DealsSection">
+        <div className="mt-[70px] mb-[50px] mx-5">
+          <div className="grid grid-cols-12">
+            <div className="promo-grid col-span-9 grid grid-cols-3 gap-5">
+              <div className="col-span-2">
+                <PromoBanner  />
+              </div>
+              <div className="col-span-1">
+              <HeadphonesCard />
+              </div>
+              <FashionPromoCard  />
+              <ElectronicPromoCard />
+              <ShoesPromoCard />
+            </div>
+            <div className="col-span-3"></div>
           </div>
         </div>
       </section>
