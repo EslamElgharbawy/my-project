@@ -1,5 +1,6 @@
-import Image from 'next/image'
+import Image from "next/image";
 import promoCard3 from "@/assets/images/banner3.jpg";
+import i18n from "@/i18n";
 
 export default function ElectronicPromoCard() {
   return (
@@ -10,7 +11,62 @@ export default function ElectronicPromoCard() {
           alt="promoCard3"
           className="w-full h-full object-cover"
         ></Image>
+
+        <div className="absolute inset-0 left-14 bottom-14 w-4/5 text-left z-10 flex flex-col justify-between">
+          <div>
+            <h3 className="text-xl mb-2 mt-1 ms-1 uppercase font-semibold text-textMain leading-6">
+              Weekend Sale
+            </h3>
+            <h3
+              className="
+    relative w-fit me-5
+    text-7xl font-bold text-primary
+    leading-[52px] tracking-[-4px]
+    mb-5
+
+    after:content-['']
+    after:absolute
+    after:-right-5
+    after:top-1/2
+    after:-translate-y-1/2
+    after:w-[1.5px]
+    after:h-14
+    after:bg-[#999999]
+    after:opacity-55
+  "
+            >
+              D70
+            </h3>
+            <h3 className="tracking-tighter mt-1 capitalize text-textMain leading-8 ">
+              Trade in your current
+              <br />
+              <span className=" text-[40px] tracking-[-2.5px] font-bold text-[#333]">
+                Camera
+              </span>
+            </h3>
+          </div>
+          <a
+            className="text-[#333] text-lg font-semibold leading-none flex items-center gap-2 uppercase "
+            href="#"
+          >
+            Shop Now
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth="2"
+              stroke="currentColor"
+              className={`size-5 ${i18n.language === "ar" ? "rotate-180" : ""}`}
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"
+              />
+            </svg>
+          </a>
+        </div>
       </div>
     </div>
-  )
+  );
 }

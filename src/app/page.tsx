@@ -396,7 +396,15 @@ export default function Home() {
               <ElectronicPromoCard />
               <ShoesPromoCard />
             </div>
-            <div className="col-span-3"></div>
+            <div className="col-span-3">
+              <div>
+                <h2>Top Daily Deals</h2>
+                <div>
+                  
+                </div>
+              </div>
+              <div></div>
+            </div>
           </div>
         </div>
       </section>
