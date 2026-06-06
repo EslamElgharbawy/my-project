@@ -71,3 +71,24 @@
   background: #fff !important;
   opacity: 1 !important;
 }
+
+.skeleton-shimmer {
+  background: linear-gradient(
+    90deg,
+    #ddd 0px,
+    #e8e8e8 40px,
+    #ddd 80px
+  );
+  background-size: 600px;
+  animation: shimmer 1.6s infinite linear;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -100px;
+  }
+
+  100% {
+    background-position: 140px;
+  }
+}

@@ -27,7 +27,7 @@ export default function ElectronicPromoCard() {
     mb-5
     after:content-['']
     after:absolute
-    ${i18n.language === "ar" ? "after:-left-5" : "after:right-5"}
+    ${i18n.language === "ar" ? "after:-left-5" : "after:-right-5"}
     after:top-1/2
     after:-translate-y-1/2
     after:w-[1.5px]

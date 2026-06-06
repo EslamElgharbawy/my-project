@@ -8,7 +8,7 @@ import Image from "next/image";
 import img1 from "../assets/images/intro-banner1.jpg";
 import img2 from "../assets/images/intro-banner2.jpg";
 import { motion } from "framer-motion";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import i18n from "@/i18n";
 import PromoBanner from "@/components/PromoBanner/PromoBanner";
@@ -16,11 +16,11 @@ import HeadphonesCard from "@/components/HeadphonesCard/HeadphonesCard";
 import FashionPromoCard from "@/components/FashionPromoCard/FashionPromoCard";
 import ElectronicPromoCard from "@/components/ElectronicPromoCard/ElectronicPromoCard";
 import ShoesPromoCard from "@/components/ShoesPromoCard/ShoesPromoCard";
-import ProductLittleCard from "@/components/ProductLittleCard/ProductLittleCard";
+import ProductLittleCard from "@/components/MiniProductCard/MiniProductCard";
+import VendorCard from "@/components/VendorCard/VendorCard";
 
 export default function Home() {
   const [activeSlide, setActiveSlide] = useState(0);
- 
   const { t } = useTranslation();
 
   const features_data = [
@@ -401,17 +401,33 @@ export default function Home() {
             <div className="col-span-3">
               <div>
                 <div className="bg-secondary py-6 text-center">
-                  <h2 className="text-2xl text-[#FFFFFFB3]">{t("deals.topDailyDeals")}</h2>
+                  <h2 className="text-2xl text-[#FFFFFFB3]">
+                    {t("deals.topDailyDeals")}
+                  </h2>
                 </div>
                 <div className="bg-white">
                   <div className="p-5">
                     <div className="flex flex-col gap-5">
-                      <ProductLittleCard/>
+                      <ProductLittleCard />
                     </div>
                   </div>
                 </div>
               </div>
-              <div></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="vendors">
+        <div className=" mx-5">
+          <div className="mb-8">
+            <h2 className="capitalize text-2xl font-bold leading-7 text-[#333]">
+              top selling vendors
+            </h2>
+          </div>
+          <div>
+            <div className="flex justify-center items-center gap-5">
+              <VendorCard />
             </div>
           </div>
         </div>
