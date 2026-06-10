@@ -10,7 +10,7 @@ const initialState: VendorState = {
 
 export const getVendors = createAsyncThunk("Vendors/getVendors", async () => {
   const { data } = await axios.get(
-    "https://ecommerce.routemisr.com/api/v1/vendors",
+    "https://ecommerce.routemisr.com/api/v1/brands",
   );
   return data.data;
 });
