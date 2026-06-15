@@ -16,8 +16,9 @@ import HeadphonesCard from "@/components/HeadphonesCard/HeadphonesCard";
 import FashionPromoCard from "@/components/FashionPromoCard/FashionPromoCard";
 import ElectronicPromoCard from "@/components/ElectronicPromoCard/ElectronicPromoCard";
 import ShoesPromoCard from "@/components/ShoesPromoCard/ShoesPromoCard";
-import ProductLittleCard from "@/components/MiniProductCard/MiniProductCard";
 import VendorCard from "@/components/VendorCard/VendorCard";
+import MiniCategoryCard from "@/components/MiniCategoryCard/MiniCategoryCard";
+import MiniProductCard from "@/components/MiniProductCard/MiniProductCard";
 
 export default function Home() {
   const [activeSlide, setActiveSlide] = useState(0);
@@ -408,7 +409,7 @@ export default function Home() {
                 <div className="bg-white">
                   <div className="p-5">
                     <div className="flex flex-col gap-5">
-                      <ProductLittleCard />
+                      <MiniProductCard />
                     </div>
                   </div>
                 </div>
@@ -441,8 +442,8 @@ export default function Home() {
             </h2>
           </div>
           <div>
-            <div className="flex justify-center items-center">
-              
+            <div className="grid grid-cols-3 md:grid-cols-8 items-center">
+              <MiniCategoryCard/>
             </div>
           </div>
         </div>

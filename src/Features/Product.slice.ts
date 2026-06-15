@@ -14,8 +14,6 @@ export const getProducts = createAsyncThunk(
     const {data} = await axios.get(
       "https://ecommerce.routemisr.com/api/v1/products",
     );
-    console.log(data.data);
-
     return data.data;
   },
 );
@@ -27,20 +25,13 @@ const ProductSlice = createSlice({
   extraReducers: (builder) => {
     builder.addCase(getProducts.pending, (prevState) => {
       prevState.loading = true;
-      console.log("not yet",prevState);
-      
     });
     builder.addCase(getProducts.fulfilled, (prevState, action) => {
       prevState.loading = false;
       prevState.products = action.payload;
-      console.log("done",prevState);
-
     });
     builder.addCase(getProducts.rejected, (prevState) => {
       prevState.loading = false;
-      console.log("rejected",prevState);
-
-
     });
   },
 });
