@@ -40,7 +40,7 @@ export default function VendorCard() {
           {brands.map((brand) => {
             const vendorProducts = brand.products.slice(0, 3);
             return (
-              <div key={brand._id} className="flex flex-col gap-5 w-[300px]">
+              <div key={brand._id} className="flex flex-col gap-5">
                 <div className="my-5 flex items-center justify-center gap-5">
                   <Image
                     src={brand.image}

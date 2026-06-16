@@ -3,8 +3,10 @@ import { useAppDispatch, useAppSelector } from "@/hooks/store.hooks";
 import { useEffect } from "react";
 import BrandCardSkeleton from "../Skeletons/BrandCardSkeleton";
 import Image from "next/image";
+import { useTranslation } from "react-i18next";
 
 export default function MiniCategoryCard() {
+    const {t} = useTranslation()
   const dispatch = useAppDispatch();
 
   const { categories, loading } = useAppSelector(
@@ -13,6 +15,8 @@ export default function MiniCategoryCard() {
   useEffect(() => {
     dispatch(getCategories());
   }, []);
+  console.log(categories);
+  
   return (
     <>
       {loading ? (
@@ -28,11 +32,11 @@ export default function MiniCategoryCard() {
                     alt={item.name}
                     width={100}
                     height={100}
-                    className="w-36 h-36 rounded-full  object-cover overflow-hidden group-hover:scale-105 group-hover:shadow-lg transition-all duration-300"
+                    className="w-36 h-36 rounded-full object-cover overflow-hidden group-hover:scale-105 group-hover:shadow-lg transition-all duration-300"
                   />
                 </a>
                 <h3 className="text-lg font-bold text-[#333] mt-5 text-center hover:text-primary transition-colors duration-300">
-                  <a href="#">{item.name}</a>
+                  <a href="#">{t(`categories.${item.slug}`)}</a>
                 </h3>
               </div>
             );

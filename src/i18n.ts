@@ -22,7 +22,7 @@ const resources = {
         findStore: "Find FreshCart Store",
         freeShipping: "Free Standard Shipping",
       },
-      categories: {
+      categories_menu: {
         all: "All Categories",
         fashion: "Fashion",
         bags: "Bags",
@@ -91,6 +91,19 @@ const resources = {
         topWeeklyVendors: "Top Weekly Vendors",
         products: "Products",
       },
+      categories: {
+        shopByCategories: "Shop By Categories",
+        music: "Music",
+        "men's-fashion": "Men's Fashion",
+        "women's-fashion": "Women's Fashion",
+        supermarket: "SuperMarket",
+        "baby-and-toys": "Baby & Toys",
+        home: "Home",
+        books: "Books",
+        "beauty-and-health": "Beauty & Health",
+        mobiles: "Mobiles",
+        electronics: "Electronics",
+      },
       footer: {
         supportText: "Got Question? Call us 24/7",
         description: "Register now to get updates on promotions & coupons.",
@@ -150,7 +163,7 @@ const resources = {
         findStore: "اعثر على متجر فريش كارت",
         freeShipping: "شحن قياسي مجاني",
       },
-      categories: {
+      categories_menu: {
         all: "كل الأقسام",
         fashion: "أزياء",
         bags: "حقائب",
@@ -219,6 +232,19 @@ const resources = {
       vendors: {
         topWeeklyVendors: "أفضل البائعين الأسبوعيين",
         products: "منتج",
+      },
+      categories: {
+        shopByCategories: "تسوق حسب الأقسام",
+        music: "الموسيقى",
+        "men's-fashion": "أزياء رجالية",
+        "women's-fashion": "أزياء نسائية",
+        supermarket: "السوبر ماركت",
+        "baby-and-toys": "الأطفال والألعاب",
+        home: "المنزل",
+        books: "الكتب",
+        "beauty-and-health": "الجمال والصحة",
+        mobiles: "الهواتف المحمولة",
+        electronics: "الإلكترونيات",
       },
       footer: {
         supportText: "هل لديك سؤال؟ اتصل بنا 24/7",

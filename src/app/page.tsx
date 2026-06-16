@@ -8,7 +8,7 @@ import Image from "next/image";
 import img1 from "../assets/images/intro-banner1.jpg";
 import img2 from "../assets/images/intro-banner2.jpg";
 import { motion } from "framer-motion";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import i18n from "@/i18n";
 import PromoBanner from "@/components/PromoBanner/PromoBanner";
@@ -19,9 +19,15 @@ import ShoesPromoCard from "@/components/ShoesPromoCard/ShoesPromoCard";
 import VendorCard from "@/components/VendorCard/VendorCard";
 import MiniCategoryCard from "@/components/MiniCategoryCard/MiniCategoryCard";
 import MiniProductCard from "@/components/MiniProductCard/MiniProductCard";
+import ProductCard from "@/components/ProductCard/ProductCard";
+import SidebarCategories from "@/components/SidebarCategories/SidebarCategories";
+import { useAppDispatch, useAppSelector } from "@/hooks/store.hooks";
+import { getProducts } from "@/Features/Product.slice";
 
 export default function Home() {
+  const dispatch = useAppDispatch();
   const [activeSlide, setActiveSlide] = useState(0);
+  const [selectedSubCategory, setSelectedSubCategory] = useState("");
   const { t } = useTranslation();
 
   const features_data = [
@@ -118,6 +124,25 @@ export default function Home() {
     },
   ];
 
+  const { products, productDetails, loading } = useAppSelector(
+    (store) => store.ProductSlice,
+  );
+  
+
+  const electronicsProducts = products.filter(
+    (product) => product.category.name === "Electronics",
+  );
+
+  const filteredProducts =
+    selectedSubCategory === ""
+      ? electronicsProducts
+      : electronicsProducts.filter((product) =>
+          product.subcategory.some((sub) => sub._id === selectedSubCategory),
+        );
+
+  useEffect(() => {
+    dispatch(getProducts());
+  }, [dispatch]);
   return (
     <>
       <section id="hero">
@@ -427,7 +452,7 @@ export default function Home() {
             </h2>
           </div>
           <div>
-            <div className="flex justify-center items-center gap-5">
+            <div className="grid grid-cols-1 md:grid-cols-5 gap-5">
               <VendorCard />
             </div>
           </div>
@@ -438,12 +463,29 @@ export default function Home() {
         <div className="mx-5 mt-20">
           <div className="mb-8">
             <h2 className="capitalize text-2xl font-bold leading-7 text-[#333]">
-              Shop By Categories
+              {t("categories.shopByCategories")}
             </h2>
           </div>
           <div>
             <div className="grid grid-cols-3 md:grid-cols-8 items-center">
-              <MiniCategoryCard/>
+              <MiniCategoryCard />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div className="mt-9 mx-5 p-2">
+          <div className="grid md:grid-cols-12 gap-5">
+            <div className="col-span-3">
+              <SidebarCategories setSelectedSubCategory={setSelectedSubCategory} />
+            </div>
+            <div className="col-span-9">
+              <div className="grid grid-cols-4 gap-5">
+                {filteredProducts.map((product) => (
+                  <ProductCard key={product._id} {...product} />
+                ))}
+              </div>
             </div>
           </div>
         </div>

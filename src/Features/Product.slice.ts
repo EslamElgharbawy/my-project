@@ -3,7 +3,7 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 
 const initialState: ProductState = {
-  products: null,
+  products: [],
   productDetails: null,
   loading: false,
 };
@@ -11,7 +11,7 @@ const initialState: ProductState = {
 export const getProducts = createAsyncThunk(
   "Products/getProducts",
   async () => {
-    const {data} = await axios.get(
+    const { data } = await axios.get(
       "https://ecommerce.routemisr.com/api/v1/products",
     );
     return data.data;

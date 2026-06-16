@@ -1,5 +1,5 @@
 export type ProductState = {
-  products: Product[] | null;
+  products: Product[];
   productDetails: Product | null;
   loading: boolean;
 };

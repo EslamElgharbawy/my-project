@@ -4,7 +4,7 @@ export default function BrandCardSkeleton() {
         {Array.from({ length: 5 }).map((_, index) => (
           <div
             key={index}
-            className="flex flex-col gap-5 w-[300px] animate-pulse"
+            className="flex flex-col gap-5 animate-pulse"
           >
             {/* Brand Header */}
             <div className="my-5 flex items-center justify-center gap-5">
