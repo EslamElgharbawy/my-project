@@ -53,7 +53,7 @@ const resources = {
       deals: {
         topDailyDeals: "Top Daily Deals",
 
-        trending: "Trending",
+        trending: "Tranding",
         collection: "Collection",
         dealsAndPromotion: "Deals and Promotion",
         from: "From",

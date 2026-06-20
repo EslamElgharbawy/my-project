@@ -380,7 +380,7 @@ export default function Home() {
       </section>
 
       <section id="Features">
-        <div className="py-8 mx-5">
+        <div className="py-8 mx-4 lg:mx-5">
           <div className="hidden 2xl:flex justify-center items-center py-6 w-full bg-white">
             {features_data.map((feature) => (
               <div
@@ -410,6 +410,7 @@ export default function Home() {
                   slidesPerView: 2,
                 },
               }}
+              dir="ltr"
               spaceBetween={10}
               pagination={{ clickable: true }}
             >
@@ -441,15 +442,13 @@ export default function Home() {
       </section>
 
       <section id="DealsSection">
-        <div className="mt-[70px] mb-[50px] mx-5">
-          <div className="grid grid-cols-12 gap-5">
-            <div className="promo-grid col-span-9 grid grid-cols-3 gap-5 mb-8">
+        <div className="mt-5 2xl:mt-[70px] mb-[50px] mx-4 xl:mx-5">
+          <div className="2xl:grid grid-cols-12 gap-5">
+            <div className="promo-grid col-span-9 grid grid-cols-2 xl:grid-cols-3 gap-y-5 gap-x-5 xl:gap-5 mb-8">
               <div className="col-span-2">
                 <PromoBanner />
               </div>
-              <div className="col-span-1">
-                <HeadphonesCard />
-              </div>
+              <HeadphonesCard />
               <FashionPromoCard />
               <ElectronicPromoCard />
               <ShoesPromoCard />
@@ -457,7 +456,7 @@ export default function Home() {
             <div className="col-span-3">
               <div>
                 <div className="bg-secondary py-6 text-center">
-                  <h2 className="text-2xl text-[#FFFFFFB3]">
+                  <h2 className="text-xl lg:text-[22px] xl:text-2xl sm:max-xl:leading-5 text-[#FFFFFFB3]">
                     {t("deals.topDailyDeals")}
                   </h2>
                 </div>

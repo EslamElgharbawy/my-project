@@ -6,26 +6,26 @@ export default function ShoesPromoCard() {
   const {t} = useTranslation();
   return (
     <div>
-      <div className="relative h-[557px]">
+      <div className="relative h-[205px] xl:h-[400px] 2xl:h-[557px]">
         <Image
           src={promoCard5}
           alt="promoCard5"
           className="w-full h-full object-cover"
         ></Image>
-        <div className="absolute w-9/12 flex justify-center items-center flex-col left-1/2 transform -translate-x-1/2 gap-[320px] bottom-14 z-10 uppercase">
-          <div>
-            <h3 className="text-[50px] tracking-[-1.25px] font-bold text-white leading-[60px] mb-3">
+        <div className="absolute w-9/12 xl:w-[90%] flex justify-center items-center flex-col left-1/2 transform -translate-x-1/2 gap-28 md:gap-[120px] xl:gap-[180px] 2xl:gap-[300px] bottom-4 xl:bottom-8 2xl:bottom-14 z-10 uppercase">
+          <div className="text-center flex flex-col gap-0">
+            <h3 className="text-[18px] xl:text-[38px] xl:leading-[45px] 2xl:text-[50px] tracking-[-1.25px] font-bold text-white leading-5 2xl:leading-[60px] xl:mb-3 sm:max-2xl:-tracking-wide">
              {t("deals.upTo")}
             </h3>
             <a
-              className="text-[22px] mb-9 border-b-[1px] border-[#ffffff99] text-[#ffffff99] capitalize leading-5 tracking-[-0.55px] hover:text-white transition-colors duration-300"
+              className=" text-[10px] xl:text-base 2xl:text-[22px] xl:mb-9 border-b-[1px] border-[#ffffff99] text-[#ffffff99] capitalize xl:leading-5 tracking-[-0.55px] hover:text-white transition-colors duration-300"
               href="#"
             >
               {t("deals.ultimateSaleCollection")}
             </a>
           </div>
           <a
-            className="text-white text-lg font-semibold leading-none flex justify-center items-center gap-2 group"
+            className="text-white text-[10px] xl:text-base 2xl:text-lg font-semibold leading-none flex justify-center items-center gap-2 group"
             href=""
           >
             {t("deals.shopNow")}
@@ -35,7 +35,7 @@ export default function ShoesPromoCard() {
               viewBox="0 0 24 24"
               strokeWidth="2"
               stroke="currentColor"
-              className={`size-5 ${i18n.language === "ar" ? "rotate-180 group-hover:-translate-x-2" : "group-hover:translate-x-2"} group-hover:transform   transition-transform duration-200`}
+              className={`size-5 sm:max-xl:hidden ${i18n.language === "ar" ? "rotate-180 group-hover:-translate-x-2" : "group-hover:translate-x-2"} group-hover:transform   transition-transform duration-200`}
             >
               <path
                 strokeLinecap="round"
