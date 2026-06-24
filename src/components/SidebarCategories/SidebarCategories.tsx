@@ -35,7 +35,7 @@ export default function SidebarCategories({
     <>
       <div className="flex justify-center flex-col gap-4 bg-white py-5 px-4 2xl:px-8">
         <div>
-          <h1 className="text-sm md:text-lg xl:text-base 2xl:text-xl font-bold text-[#333] leading-6">
+          <h1 className="text-base md:text-lg xl:text-base 2xl:text-xl font-bold text-[#333] leading-6">
             {t("electronicsSidebar.title")}
           </h1>
         </div>
@@ -52,7 +52,7 @@ export default function SidebarCategories({
                   setFilterLoading(false);
                 }, 500);
               }}
-              className="text-xs md:text-sm xl:text-xs 2xl:text-base text-textMain text-start hover:text-primary transition-colors duration-300"
+              className="text-sm xl:text-xs 2xl:text-base text-textMain text-start hover:text-primary transition-colors duration-300"
             >
               {t(`electronicsSidebar.${sub.slug}`)}
               
@@ -60,10 +60,10 @@ export default function SidebarCategories({
           ))}
         </div>
         <button className="group mt-2">
-          <h1
-            className="text-xs md:text-sm xl:text-xs 2xl:text-sm font-semibold text-[#333] uppercase flex items-center gap-3 w-fit relative after:absolute after:left-1/2 after:-translate-x-1/2 after:-bottom-1
+          <a href="#"
+            className="text-sm xl:text-xs 2xl:text-sm font-semibold text-[#333] uppercase flex items-center gap-3 w-fit relative after:absolute after:left-1/2 after:-translate-x-1/2 after:-bottom-1
     after:h-[3px] after:w-0
-    after:bg-[#333] after:transition-all after:duration-500 group-hover:after:w-full"
+    after:bg-[#333] after:transition-all after:duration-500 2xl:group-hover:after:w-full"
           >
             {t(`electronicsSidebar.browseAll`)}
             <svg
@@ -80,7 +80,7 @@ export default function SidebarCategories({
                 d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"
               />
             </svg>
-          </h1>
+          </a>
         </button>
       </div>
     </>

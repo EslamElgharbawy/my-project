@@ -193,7 +193,7 @@ export default function Footer1() {
                                 focus:outline-none
                                 focus:ring-0 flex-1"
                         />
-                        <button className="bg-primary text-white px-4 py-2 md:py-3 md:px-5 rounded hover:bg-opacity-85 transition-colors duration-300 text-xs lg:text-sm font-semibold">
+                        <button className="bg-primary text-white px-3 py-2 md:py-3 md:px-5 rounded 2xl:hover:bg-opacity-85 transition-colors duration-300 text-xs lg:text-sm font-semibold">
                           {t("footer.signUp")}
                         </button>
                       </div>

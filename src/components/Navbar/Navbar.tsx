@@ -32,6 +32,7 @@ import Link from "next/link";
 import { lang } from "@/Types/Lang";
 import { useAppSelector } from "@/hooks/store.hooks";
 import { MobileMenu } from "../MobileMenu/MobileMenu";
+import { Popover, PopoverContent, PopoverTrigger } from "../ui/popover";
 
 export default function Navbar() {
   const inputRef = useRef<HTMLInputElement | null>(null);
@@ -472,8 +473,8 @@ export default function Navbar() {
               <div className="top_bar_right flex justify-center items-center gap-5">
                 <div className="switchers flex justify-center items-center gap-5 xl:gap-8 ">
                   <div>
-                    <HoverCard openDelay={100}>
-                      <HoverCardTrigger className="text-[11px] lg:text-xs xl:text-base text-[#666666] hover:text-[#fe4407] transition-all duration-300 cursor-pointer flex justify-center items-center gap-1">
+                    <Popover>
+                      <PopoverTrigger className="text-[11px] lg:text-xs xl:text-base text-[#666666] hover:text-[#fe4407] transition-all duration-300 cursor-pointer flex justify-center items-center gap-1">
                         {currency}
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
@@ -489,9 +490,12 @@ export default function Navbar() {
                             d="m19.5 8.25-7.5 7.5-7.5-7.5"
                           />
                         </svg>
-                      </HoverCardTrigger>
+                      </PopoverTrigger>
 
-                      <HoverCardContent className="w-11 xl:w-14 border-none outline-none ring-0 focus:outline-none focus:ring-0 flex justify-center bg-white">
+                      <PopoverContent
+                        align="end"
+                        className="w-10 xl:w-14 border-none outline-none ring-0 focus:outline-none focus:ring-0 flex justify-center bg-white"
+                      >
                         <ul className="space-y-2">
                           <li
                             onClick={() => {
@@ -510,11 +514,11 @@ export default function Navbar() {
                             USD
                           </li>
                         </ul>
-                      </HoverCardContent>
-                    </HoverCard>
+                      </PopoverContent>
+                    </Popover>
                   </div>
                   <div>
-                    <HoverCard openDelay={100}>
+                    <Popover>
                       <div className="flex justify-center items-center gap-2">
                         <span className="w-[14px] h-[14px] xl:w-[20px] xl:h-[20px] mb-3 lg:mb-3 xl:mb-1">
                           <ReactCountryFlag
@@ -526,7 +530,7 @@ export default function Navbar() {
                             }}
                           />
                         </span>
-                        <HoverCardTrigger className="text-[11px] lg:text-xs xl:text-base text-[#666666] hover:text-[#fe4407] transition-all duration-300 cursor-pointer flex justify-center items-center gap-1">
+                        <PopoverTrigger className="text-[11px] lg:text-xs xl:text-base text-[#666666] hover:text-[#fe4407] transition-all duration-300 cursor-pointer flex justify-center items-center gap-1">
                           {language}
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
@@ -542,10 +546,13 @@ export default function Navbar() {
                               d="m19.5 8.25-7.5 7.5-7.5-7.5"
                             />
                           </svg>
-                        </HoverCardTrigger>
+                        </PopoverTrigger>
                       </div>
 
-                      <HoverCardContent className="w-14  xl:w-20 border-none outline-none ring-0 focus:outline-none focus:ring-0 flex justify-center bg-white">
+                      <PopoverContent
+                        align="end"
+                        className="w-16  xl:w-20  border-none outline-none ring-0 focus:outline-none focus:ring-0 flex justify-center bg-white"
+                      >
                         <ul className="space-y-2">
                           <li
                             onClick={() => {
@@ -558,7 +565,7 @@ export default function Navbar() {
                               <ReactCountryFlag
                                 countryCode="GB"
                                 svg
-                                 style={{
+                                style={{
                                   width: "100%",
                                   height: "100%",
                                 }}
@@ -586,8 +593,8 @@ export default function Navbar() {
                             EGY
                           </li>
                         </ul>
-                      </HoverCardContent>
-                    </HoverCard>
+                      </PopoverContent>
+                    </Popover>
                   </div>
                 </div>
               </div>
@@ -626,7 +633,7 @@ export default function Navbar() {
                       <MobileMenu />
                       <div className="flex justify-center items-center gap-5 ms-auto">
                         <a
-                          href="/Login"
+                          href="#"
                           className="hover:text-[#fe4407] transition-all duration-300"
                         >
                           <User className="w-[26px] h-[26px] lg:w-[28px] lg:h-[28px] xl:w-[34px] xl:h-[34px]" />

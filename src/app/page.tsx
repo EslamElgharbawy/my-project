@@ -201,7 +201,7 @@ export default function Home() {
                 </motion.h3>
 
                 <div
-                  className={`leading-none mb-4 xl:mb-0 ${
+                  className={`leading-none mb-4 xl:mb-0  ${
                     i18n.language === "ar" ? "xl:me-[327px]" : "xl:ms-[327px]"
                   }`}
                 >
@@ -355,7 +355,7 @@ export default function Home() {
                   }}
                   transition={{ duration: 1, delay: 0.8 }}
                   href=""
-                  className="text-[10px] md:text-xs lg:text-sm xl:text-[14px] py-2 px-4 md:py-3 md:px-5 2xl:py-4 2xl:px-8 text-white bg-[#333] rounded-[4px] font-semibold flex justify-center items-center gap-2 w-fit  transition-colors duration-300 hover:bg-[#454545] sm:max-xl:ms-auto "
+                  className="text-[10px] md:text-xs lg:text-sm xl:text-[14px] py-2 px-4 md:py-3 md:px-5 2xl:py-4 2xl:px-8 text-white bg-[#333] rounded-[4px] font-semibold flex justify-center items-center gap-2 w-fit  transition-colors duration-300 hover:bg-[#454545] "
                 >
                   {t("hero.shopCollection")}
                   <svg
