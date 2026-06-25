@@ -58,6 +58,7 @@ export default function Navbar() {
   return (
     <>
       <header>
+         {/* //& Desktop  */}
         <div className="hidden 2xl:block">
           <div className="bg-background relative h-[110px]">
             {/* // ? top_bar */}
@@ -435,6 +436,7 @@ export default function Navbar() {
           </div>
         </div>
 
+         {/* //& Mobile  */}
         <div className="2xl:hidden">
           <div className="relative">
             {/* // ? top_bar */}
@@ -614,21 +616,7 @@ export default function Navbar() {
                 </div>
                 <div className="nav-taps w-full bg-secondary">
                   <div className="taps&cart text-white flex justify-between items-center px-5 py-3 lg:py-4 xl:py-6 border-b-[1px] border-[#EEEEEE12]">
-                    {/* <div className="left-side">
-                    <ul className="flex items-center gap-12 text-[14px] font-semibold">
-                      {sections.map((item) => (
-                        <li
-                          key={item.name}
-                          onClick={() => setactive(item.name)}
-                          className={`tap-item py-6 transition-all duration-300 ${active === item.name ? "text-primary" : "hover:text-primary"}`}
-                        >
-                          <Link href={item.path}>
-                            {t(`navbar.${item.name}`)}
-                          </Link>
-                        </li>
-                      ))}
-                    </ul>
-                  </div> */}
+                   
                     <div className="right-side flex justify-between items-center w-full">
                       <MobileMenu />
                       <div className="flex justify-center items-center gap-5 ms-auto">
