@@ -67,7 +67,12 @@ export function MobileMenu() {
       <SheetContent
         side={i18n.language === "ar" ? "right" : "left"}
         onOpenAutoFocus={(e) => e.preventDefault()}
-        className="z-50 bg-[#222] !w-[80%] md:!w-[70%] lg:!w-[62%] xl:!w-[36%] !border-0"
+        className={`z-50 bg-[#222] !w-[80%] md:!w-[70%] lg:!w-[62%] xl:!w-[36%] !border-0
+           data-[state=open]:animate-in data-[state=closed]:animate-out 
+           ${i18n.language === "ar" ? " data-[state=open]:slide-in-from-right data-[state=closed]:slide-out-to-right" : " data-[state=open]:slide-in-from-left data-[state=closed]:slide-out-to-left"}
+            transition-all 
+            !duration-500 
+            ease-in-out`}
       >
         <SheetHeader>
           <SheetTitle className="sr-only">Mobile Menu</SheetTitle>
