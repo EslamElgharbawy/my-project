@@ -7,6 +7,7 @@ import { Navigation, Pagination } from "swiper/modules";
 import Image from "next/image";
 import img1 from "../assets/images/intro-banner1.jpg";
 import img2 from "../assets/images/intro-banner2.jpg";
+import img3 from "../assets/images/banner6.png";
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
@@ -391,7 +392,7 @@ export default function Home() {
                 <div className="flex justify-center items-center p-4 rounded-full bg-[#8CD42F1A] text-secondary">
                   {feature.icon}
                 </div>
-                <div >
+                <div>
                   <h3 className="text-lg font-semibold leading-6 tracking-normal mb-1">
                     {feature.title}
                   </h3>
@@ -520,6 +521,41 @@ export default function Home() {
                 {filteredProducts.map((product) => (
                   <ProductCard key={product._id} {...product} />
                 ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="banner">
+        <div className="mx-5 mt-16">
+          <div className="relative h-[135px] xl:h-[200px] 2xl:h-[290px]">
+            <Image
+              src={img3}
+              alt="banner"
+              className="w-full h-full object-cover sm:max-xl:object-[15%] xl:max-2xl:object-[5%] "
+            />
+            <div className="flex justify-between items-center sm:max-2xl:flex-col sm:max-2xl:items-start absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[94%]">
+              <h3 className="text-primary text-[32px] lg:text-[36px] xl:text-[50px] 2xl:text-[111px] font-bold sm:max-2xl:tracking-[-2.75px] sm:max-2xl:leading-9">
+                40%
+                <span
+                  className="uppercase text-transparent sm:max-md:ms-1 md:ms-2"
+                  style={{ WebkitTextStroke: "1px #fe4407" }}
+                >
+                  off
+                </span>
+              </h3>
+              <div>
+                <h2 className="uppercase text-lg lg:text-xl xl:text-3xl 2xl:text-[46px] font-extrabold text-white 2xl:tracking-[-1.25px] xl:max-2xl:mt-3">
+                  for today's fashion
+                </h2>
+                <p className="text-xs lg:text-sm xl:text-xl 2xl:text-3xl font-normal text-[#eee] lg:mt-1 xl:mt-2 2xl:mt-5">
+                  Use code
+                  <span className="text-xs lg:text-sm xl:text-xl 2xl:text-[28px] text-[#333] bg-accent font-semibold px-2 mx-2 leading-8 -tracking-[1.3px]">
+                    Black 12345
+                  </span>{" "}
+                  to get best offer.
+                </p>
               </div>
             </div>
           </div>

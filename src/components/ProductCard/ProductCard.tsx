@@ -67,13 +67,13 @@ leading-4
               href="#"
               className="w-8 h-8 2xl:w-10 2xl:h-10 rounded-full bg-white flex justify-center items-center border-[1px] text-[#999999] 2xl:hover:bg-primary 2xl:hover:border-transparent 2xl:hover:text-white transition-colors duration-300 group"
             >
-              <Heart size={18} className="" />
+              <Heart className="w-[18px] h-[18px] xl:w-[20px] xl:h-[20px]" />
             </a>
             <a
               href="#"
               className="w-8 h-8 2xl:w-10 2xl:h-10 rounded-full bg-white flex justify-center items-center border-[1px] text-[#999999] 2xl:hover:bg-primary 2xl:hover:border-transparent 2xl:hover:text-white transition-colors duration-300 group"
             >
-              <Scale size={20} strokeWidth={1.8} className="" />
+              <Scale strokeWidth={1.8} className="w-[20px] h-[20px] xl:w-[22px] xl:h-[22px]" />
             </a>
           </div>
         </div>
