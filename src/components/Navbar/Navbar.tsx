@@ -70,8 +70,7 @@ export default function Navbar() {
   return (
     <>
       {/* //& Desktop  */}
-      <header className="fixed top-0 left-0 right-0 z-50 ">
-        <div className="hidden 2xl:block">
+      <header className="fixed top-0 left-0 right-0 z-50 hidden 2xl:block">
           <div className="bg-background relative h-[110px]">
             {/* // ? top_bar */}
             <motion.div
@@ -460,13 +459,11 @@ export default function Navbar() {
                 </div>
               </div>
             </div>
-          </div>
         </div>
       </header>
 
       {/* //& Mobile  */}
-      <header className="fixed top-0 left-0 right-0 z-50">
-        <div className="2xl:hidden">
+      <header className="fixed top-0 left-0 right-0 z-50 2xl:hidden">
           {/* // ? top_bar */}
           <div
             className={`overflow-hidden bg-background transition-all duration-200 ease-in-out ${
@@ -701,7 +698,6 @@ export default function Navbar() {
               </div>
             </div>
           </div>
-        </div>
       </header>
     </>
   );
