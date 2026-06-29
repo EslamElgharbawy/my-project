@@ -21,15 +21,19 @@ import VendorCard from "@/components/VendorCard/VendorCard";
 import MiniCategoryCard from "@/components/MiniCategoryCard/MiniCategoryCard";
 import MiniProductCard from "@/components/MiniProductCard/MiniProductCard";
 import ProductCard from "@/components/ProductCard/ProductCard";
-import SidebarCategories from "@/components/SidebarCategories/SidebarCategories";
 import { useAppDispatch, useAppSelector } from "@/hooks/store.hooks";
 import { getProducts } from "@/Features/Product.slice";
 import LoaderProducts from "@/components/LoaderProducts/LoaderProducts";
+import SidebarClothesCategories from "@/components/SidebarClothesCategories/SidebarClothesCategories";
+import SidebarElectronicsCategories from "@/components/SidebarElectronicsCategories/SidebarElectronicsCategories";
 
 export default function Home() {
   const dispatch = useAppDispatch();
   const [activeSlide, setActiveSlide] = useState(0);
-  const [selectedSubCategory, setSelectedSubCategory] = useState("");
+  const [selectedElectronicsSubCategory, setSelectedElectronicsSubCategory] =
+    useState("");
+  const [selectedClothesSubCategory, setSelectedClothesSubCategory] =
+    useState("");
   const [filterLoading, setFilterLoading] = useState(false);
   const { t } = useTranslation();
 
@@ -126,12 +130,26 @@ export default function Home() {
   const electronicsProducts = products.filter(
     (product) => product.category.name === "Electronics",
   );
+  const clothesProducts = products.filter(
+    (product) => product.category.name === "Men's Fashion",
+  );
 
-  const filteredProducts =
-    selectedSubCategory === ""
+  const filterelectronicsdProducts =
+    selectedElectronicsSubCategory === ""
       ? electronicsProducts
       : electronicsProducts.filter((product) =>
-          product.subcategory.some((sub) => sub._id === selectedSubCategory),
+          product.subcategory.some(
+            (sub) => sub._id === selectedElectronicsSubCategory,
+          ),
+        );
+
+  const filterclothesProducts =
+    selectedClothesSubCategory === ""
+      ? clothesProducts
+      : clothesProducts.filter((product) =>
+          product.subcategory.some(
+            (sub) => sub._id === selectedClothesSubCategory,
+          ),
         );
 
   useEffect(() => {
@@ -149,7 +167,7 @@ export default function Home() {
           onSlideChangeTransitionEnd={(swiper) =>
             setActiveSlide(swiper.realIndex)
           }
-          className="Swiper_hero !h-64 md:!h-72 lg:!h-80 xl:!h-[480px] 2xl:!h-[689px] sm:max-lg:mt-[109px] lg:max-xl:mt-[127px] xl:max-2xl:mt-[180px]"
+          className="Swiper_hero !h-64 md:!h-72 lg:!h-80 xl:!h-[480px] 2xl:!h-[689px] "
         >
           {/* //* Slide 1 */}
           <SwiperSlide className="relative">
@@ -505,11 +523,13 @@ export default function Home() {
       </section>
 
       <section id="Products">
-        <div className="mt-9 mx-2 2xl:mx-5 p-2">
+        <div className="my-16 mx-2 2xl:mx-5 p-2">
           <div className="grid xl:grid-cols-12 gap-5 ">
             <div className="xl:col-span-3">
-              <SidebarCategories
-                setSelectedSubCategory={setSelectedSubCategory}
+              <SidebarElectronicsCategories
+                setSelectedElectronicsSubCategory={
+                  setSelectedElectronicsSubCategory
+                }
                 setFilterLoading={setFilterLoading}
               />
             </div>
@@ -518,8 +538,13 @@ export default function Home() {
               <div
                 className={`grid grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-5 ${filterLoading ? "opacity-30" : ""} `}
               >
-                {filteredProducts.map((product) => (
-                  <ProductCard key={product._id} {...product} />
+                {filterelectronicsdProducts.slice(0, 4).map((product,index) => (
+                  <div
+                    key={product._id}
+                    className={`${index >= 2 ? "hidden 2xl:block" : ""} ${index >= 3 ? "hidden xl:max-2xl:block" : ""}`}
+                  >
+                    <ProductCard {...product} />
+                  </div>
                 ))}
               </div>
             </div>
@@ -528,12 +553,16 @@ export default function Home() {
       </section>
 
       <section id="banner">
-        <div className="mx-5 mt-16">
+        <div className="mx-5 ">
           <div className="relative h-[135px] xl:h-[200px] 2xl:h-[290px]">
             <Image
               src={img3}
               alt="banner"
-              className="w-full h-full object-cover sm:max-xl:object-[15%] xl:max-2xl:object-[5%] "
+              className={`w-full h-full object-cover sm:max-xl:object-[15%] xl:max-2xl:object-[5%] ${
+                i18n.language === "ar"
+                  ? "object-left sm:max-2xl:-scale-x-[1]"
+                  : ""
+              }`}
             />
             <div className="flex justify-between items-center sm:max-2xl:flex-col sm:max-2xl:items-start absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[94%]">
               <h3 className="text-primary text-[32px] lg:text-[36px] xl:text-[50px] 2xl:text-[111px] font-bold sm:max-2xl:tracking-[-2.75px] sm:max-2xl:leading-9">
@@ -542,20 +571,48 @@ export default function Home() {
                   className="uppercase text-transparent sm:max-md:ms-1 md:ms-2"
                   style={{ WebkitTextStroke: "1px #fe4407" }}
                 >
-                  off
+                  {t("bannerHome.discount")}
                 </span>
               </h3>
               <div>
                 <h2 className="uppercase text-lg lg:text-xl xl:text-3xl 2xl:text-[46px] font-extrabold text-white 2xl:tracking-[-1.25px] xl:max-2xl:mt-3">
-                  for today's fashion
+                  {t("bannerHome.title")}
                 </h2>
                 <p className="text-xs lg:text-sm xl:text-xl 2xl:text-3xl font-normal text-[#eee] lg:mt-1 xl:mt-2 2xl:mt-5">
-                  Use code
+                  {t("bannerHome.useCode")}
                   <span className="text-xs lg:text-sm xl:text-xl 2xl:text-[28px] text-[#333] bg-accent font-semibold px-2 mx-2 leading-8 -tracking-[1.3px]">
                     Black 12345
                   </span>{" "}
-                  to get best offer.
+                  {t("bannerHome.offer")}
                 </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="Products2">
+        <div className="my-16 mx-2 2xl:mx-5 p-2">
+          <div className="grid xl:grid-cols-12 gap-5 ">
+            <div className="xl:col-span-3">
+              <SidebarClothesCategories
+                setSelectedClothesSubCategory={setSelectedClothesSubCategory}
+                setFilterLoading={setFilterLoading}
+              />
+            </div>
+            <div className="xl:col-span-9 relative">
+              {filterLoading && <LoaderProducts />}
+              <div
+                className={`grid grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-5 ${filterLoading ? "opacity-30" : ""} `}
+              >
+                {filterclothesProducts.slice(0, 4).map((product, index) => (
+                  <div
+                    key={product._id}
+                    className={`${index >= 2 ? "hidden 2xl:block" : ""} ${index >= 3 ? "hidden xl:max-2xl:block" : ""}`}
+                  >
+                    <ProductCard {...product} />
+                  </div>
+                ))}
               </div>
             </div>
           </div>

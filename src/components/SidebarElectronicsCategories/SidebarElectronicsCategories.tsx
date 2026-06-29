@@ -3,16 +3,16 @@ import { useAppDispatch, useAppSelector } from "@/hooks/store.hooks";
 import i18n from "@/i18n";
 import React, { useEffect } from "react";
 import { useTranslation } from "react-i18next";
-
 type SidebarCategoriesProps = {
-  setSelectedSubCategory: React.Dispatch<React.SetStateAction<string>>;
+  setSelectedElectronicsSubCategory: React.Dispatch<React.SetStateAction<string>>;
   setFilterLoading: React.Dispatch<React.SetStateAction<boolean>>;
 };
-export default function SidebarCategories({
-  setSelectedSubCategory,
+
+export default function SidebarElectronicsCategories({
+  setSelectedElectronicsSubCategory,
   setFilterLoading,
 }: SidebarCategoriesProps) {
-  const {t} = useTranslation()
+  const { t } = useTranslation();
   const dispatch = useAppDispatch();
   const { products } = useAppSelector((store) => store.ProductSlice);
   const electronicsProducts = products.filter(
@@ -25,8 +25,7 @@ export default function SidebarCategories({
         .map((sub) => [sub._id, sub]),
     ).values(),
   ];
-  console.log(electronicsSubCategories);
-  
+
   useEffect(() => {
     dispatch(getProducts());
   }, [dispatch]);
@@ -46,7 +45,7 @@ export default function SidebarCategories({
               type="button"
               onClick={() => {
                 setFilterLoading(true);
-                setSelectedSubCategory(sub._id);
+                setSelectedElectronicsSubCategory(sub._id);
 
                 setTimeout(() => {
                   setFilterLoading(false);
@@ -55,12 +54,12 @@ export default function SidebarCategories({
               className="text-sm xl:text-xs 2xl:text-base text-textMain text-start hover:text-primary transition-colors duration-300"
             >
               {t(`electronicsSidebar.${sub.slug}`)}
-              
             </button>
           ))}
         </div>
         <button className="group mt-2">
-          <a href="#"
+          <a
+            href="#"
             className="text-sm xl:text-xs 2xl:text-sm font-semibold text-[#333] uppercase flex items-center gap-3 w-fit relative after:absolute after:left-1/2 after:-translate-x-1/2 after:-bottom-1
     after:h-[3px] after:w-0
     after:bg-[#333] after:transition-all after:duration-500 2xl:group-hover:after:w-full"

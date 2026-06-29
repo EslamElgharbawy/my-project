@@ -23,10 +23,10 @@ const resources = {
         freeShipping: "Free Standard Shipping",
       },
       Menu: {
-  search: "Search...",
-  pages: "Pages",
-  categories: "Categories",
-},
+        search: "Search...",
+        pages: "Pages",
+        categories: "Categories",
+      },
       hero: {
         running: "Running",
         nikeShoes: "Nike Shoes",
@@ -106,9 +106,21 @@ const resources = {
         "laptops-and-accessories": "Laptops & Accessories",
         browseAll: "Browse All",
       },
+      clothesSidebar: {
+        title: "Men's Fashion",
+        "men's-clothing": "Men's Clothing",
+        browseAll: "Browse All",
+      },
       products: {
         addToCart: "Add To Cart",
         quickView: "Quick View",
+      },
+      bannerHome: {
+        discount: "OFF",
+        title: "For Today's Fashion",
+        useCode: "Use code",
+        code: "Black 12345",
+        offer: "to get best offer.",
       },
       footer: {
         supportText: "Got Question? Call us 24/7",
@@ -169,11 +181,11 @@ const resources = {
         findStore: "اعثر على متجر فريش كارت",
         freeShipping: "شحن قياسي مجاني",
       },
-Menu: {
-  search: "بحث...",
-  pages: "الصفحات",
-  categories: "الأقسام",
-},
+      Menu: {
+        search: "بحث...",
+        pages: "الصفحات",
+        categories: "الأقسام",
+      },
       hero: {
         running: "الجري",
         nikeShoes: "أحذية نايكي",
@@ -255,9 +267,22 @@ Menu: {
         "laptops-and-accessories": "أجهزة اللابتوب وملحقاتها",
         browseAll: "عرض الكل",
       },
+
+      clothesSidebar: {
+        title: "أزياء رجالية",
+        "men's-clothing": "ملابس رجالية",
+        browseAll: "تصفح الكل",
+      },
       products: {
         addToCart: "أضف إلى السلة",
         quickView: "عرض سريع",
+      },
+      bannerHome: {
+        discount: "خصم",
+        title: "لأزياء اليوم",
+        useCode: "استخدم الكود",
+        code: "Black 12345",
+        offer: "للحصول على أفضل عرض.",
       },
       footer: {
         supportText: "هل لديك سؤال؟ اتصل بنا 24/7",
