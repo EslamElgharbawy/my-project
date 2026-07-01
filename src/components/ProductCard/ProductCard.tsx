@@ -1,6 +1,7 @@
 import { Product } from "@/Types/products";
 import { Heart, Scale } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 import { useTranslation } from "react-i18next";
 
 export default function ProductCard({
@@ -8,13 +9,17 @@ export default function ProductCard({
   price,
   imageCover,
   images,
+  _id,
 }: Product) {
   const { t } = useTranslation();
   return (
     <>
       <div className="group">
         <div className="relative">
-          <a href="#" className="relative block overflow-hidden">
+          <Link
+            href={`/ProductDetails/${_id}`}
+            className="relative block overflow-hidden"
+          >
             <Image
               src={imageCover}
               width={100}
@@ -41,7 +46,7 @@ export default function ProductCard({
         group-hover:opacity-100
       "
             />
-          </a>
+          </Link>
 
           <a
             href="#"
@@ -73,7 +78,10 @@ leading-4
               href="#"
               className="w-8 h-8 2xl:w-10 2xl:h-10 rounded-full bg-white flex justify-center items-center border-[1px] text-[#999999] 2xl:hover:bg-primary 2xl:hover:border-transparent 2xl:hover:text-white transition-colors duration-300 group"
             >
-              <Scale strokeWidth={1.8} className="w-[20px] h-[20px] xl:w-[22px] xl:h-[22px]" />
+              <Scale
+                strokeWidth={1.8}
+                className="w-[20px] h-[20px] xl:w-[22px] xl:h-[22px]"
+              />
             </a>
           </div>
         </div>
