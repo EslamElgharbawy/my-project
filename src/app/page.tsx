@@ -157,7 +157,7 @@ export default function Home() {
   }, [dispatch]);
   return (
     <>
-      <section id="hero">
+      <section id="hero" className="pt-[151px] lg:pt-[169px] xl:pt-[239px] 2xl:pt-[110px]">
         <Swiper
           dir="ltr"
           navigation={true}
@@ -167,7 +167,7 @@ export default function Home() {
           onSlideChangeTransitionEnd={(swiper) =>
             setActiveSlide(swiper.realIndex)
           }
-          className="Swiper_hero !h-64 md:!h-72 lg:!h-80 xl:!h-[480px] 2xl:!h-[689px] "
+          className="Swiper_hero !h-64 md:!h-72 lg:!h-80 xl:!h-[480px] 2xl:!h-[689px]"
         >
           {/* //* Slide 1 */}
           <SwiperSlide className="relative">

@@ -78,6 +78,13 @@
   opacity: 1 !important;
 }
 
+.swiper-pagination-fraction,
+.swiper-pagination-custom,
+.swiper-horizontal > .swiper-pagination-bullets,
+.swiper-pagination-bullets.swiper-pagination-horizontal {
+  bottom: 20 !important;
+}
+
 .skeleton-shimmer {
   background: linear-gradient(90deg, #ddd 0px, #e8e8e8 40px, #ddd 80px);
   background-size: 600px;
@@ -117,7 +124,9 @@
 .vendor_pagination .swiper-pagination-bullets.swiper-pagination-horizontal {
   bottom: 0 !important;
 }
-.vendor_pagination .swiper-pagination-clickable .swiper-pagination-bullet:not(.swiper-pagination-bullet-active) {
+.vendor_pagination
+  .swiper-pagination-clickable
+  .swiper-pagination-bullet:not(.swiper-pagination-bullet-active) {
   background-color: #000 !important;
   opacity: 0.2 !important;
 }
